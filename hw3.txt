@@ -1,0 +1,141 @@
+1. Робота з бренчами
+- створити бренчу "architecture" з "master",      переключитися в неї
+   create new repository on GitHub - "6-vcs- advanced"
+   git clone https://github.com/Lina25/6-vcs-advanced.git
+   cd 6-vcs-advanced
+   git branch architecture
+   git checkout architecture
+   (git checkout -b architecture - to create and switch to)
+-  створити структуру в файловій системі
+   mkdir assets
+   mkdir uploads 
+   echo "hello" > index.html  
+   git status
+   git add .
+   git status
+   git commit -m "add file structure"
+   cd assets
+   echo "" > all.js
+   echo "" > css.js
+   git status
+   git add .
+   git status
+   git commit -m "add js files"
+   git push origin architecture   
+
+-  зробити щоб ігнорилися всі файли з папки uploads/ (сама папка має бути в репозиторії)
+   cd uploads
+   echo '' > .keep
+   git add .
+   git commit -m "ignore"
+   git push origin architecture
+   echo "uploads/*\n !.keep" > .gitignore
+   git add .
+   git commit -m "gitignore file"
+   git push origin architecture
+   touch uploads/some.txt
+   git add .
+   git commit -m "file to be ignored"
+   git push origin architecture
+   git checkout master
+   git merge architecture
+   git branch -d architecture
+2. Rebase
+  - відколоти бренч
+   git checkout -b rebase-branch
+
+  - зробити декілька комітів в master
+   echo "new" > reb1.txt
+   git add .
+   git commit -m "add reb1 file"
+   echo "new" > reb2.txt
+   git add .
+   git commit -m "add reb2 file"
+   git push origin rebase-branch
+   git checkout master
+   git rebase master
+  -зробити коміти в свою бренчу
+   git checkout rebase-branch
+   echo "new" > reb3.txt
+   git add .
+   git commit -m "add reb3 file"
+ - зробити merge в master
+   git checkout master
+   git merge rebase-branch
+  - видалити бренч
+   git branch -d rebase-branch
+
+3. Tag
+  - зробити декілька комітів в master
+   echo "new" > tfile1.txt
+   git add .
+   git commit -m "add tfile1 file"
+   echo "new" > tfile2.txt
+   git add .
+   git commit -m "add tfile2 file"
+   
+   - створити мітку
+   git tag -a v1.1 -m "my first tag"
+   git tag
+  -залити мітку в репозиторій
+   git push origin --tags
+
+4. Submodule (advanced level)
+ - додати любий submodule
+   git submodule add https://github.com/Lina25/testing-the-github-pages.git
+  - злити зміни в master
+   git add .
+   git commit -m "add submodule"
+   git push origin master
+          https://drive.google.com/open?id=0BxxrGq-rJTuiMW9zWWJXWHJrM28
+5. Git Pages (advanced level)
+ -  створити бренч "gh-pages", вести роботу в ньому
+   git checkout -b gh-pages
+ - додати файл index.html з любим контентом (не пустий файл)
+   echo some text > index.html
+ -  коміт & пуш
+   git add .
+   git commit -m "gh-pages index.html"
+   git push origin gh-pages
+   git checkout master
+   git merge gh-pages
+   git push origin
+ -  перейти по лінку: http://<username>.github.io/<repository-name>   
+       https://lina25.github.io/6-vcs-advanced/
+-  зробити зміни, commit & push, перевирити чи з'явилися зміни
+   manualy changed content of index.html
+   git add .
+   git commit -m "gh-pages index.html"
+   git push origin gh-pages
+   git checkout master
+   git merge gh-pages
+   git push origin
+   https://lina25.github.io/6-vcs-advanced/
+   changes modified
+6. Conflict (advanced level)
+-  в master зробити зміни в file.txt
+   make some changes   
+   git add .
+   git commit -m "conflict"
+ -  в branch зробити зміни в file.txt (несумісні з попередніми - наприклад повна заміна контенту файлу)
+   git checkout gh-pages
+   make some changes
+   git add .
+   git commit -m "conflict"
+ - змерджити бренч в мастер
+   git checkout master
+   git merge gh-pages
+   conflict - https://drive.google.com/open?id=0BxxrGq-rJTuiWmhrYUV0b3J2N3M
+
+
+  - спробувати використати git merge --abort
+   git merge --abort
+   git add .
+   git commit -m "resolving"
+   git push origin
+   git checkout gh-pages
+   git push origin gh-pages
+   git checkout master
+   git merge gh-pages
+   resolving - https://drive.google.com/open?id=0BxxrGq-rJTuia2w5V1R0UXgyTUU
+
