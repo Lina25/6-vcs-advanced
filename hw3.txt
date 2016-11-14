@@ -1,12 +1,12 @@
-1. Робота з бренчами
-- створити бренчу "architecture" з "master",      переключитися в неї
+1. Р РѕР±РѕС‚Р° Р· Р±СЂРµРЅС‡Р°РјРё
+- СЃС‚РІРѕСЂРёС‚Рё Р±СЂРµРЅС‡Сѓ "architecture" Р· "master",      РїРµСЂРµРєР»СЋС‡РёС‚РёСЃСЏ РІ РЅРµС—
    create new repository on GitHub - "6-vcs- advanced"
    git clone https://github.com/Lina25/6-vcs-advanced.git
    cd 6-vcs-advanced
    git branch architecture
    git checkout architecture
    (git checkout -b architecture - to create and switch to)
--  створити структуру в файловій системі
+-  СЃС‚РІРѕСЂРёС‚Рё СЃС‚СЂСѓРєС‚СѓСЂСѓ РІ С„Р°Р№Р»РѕРІС–Р№ СЃРёСЃС‚РµРјС–
    mkdir assets
    mkdir uploads 
    echo "hello" > index.html  
@@ -23,7 +23,7 @@
    git commit -m "add js files"
    git push origin architecture   
 
--  зробити щоб ігнорилися всі файли з папки uploads/ (сама папка має бути в репозиторії)
+-  Р·СЂРѕР±РёС‚Рё С‰РѕР± С–РіРЅРѕСЂРёР»РёСЃСЏ РІСЃС– С„Р°Р№Р»Рё Р· РїР°РїРєРё uploads/ (СЃР°РјР° РїР°РїРєР° РјР°С” Р±СѓС‚Рё РІ СЂРµРїРѕР·РёС‚РѕСЂС–С—)
    cd uploads
    echo '' > .keep
    git add .
@@ -41,10 +41,10 @@
    git merge architecture
    git branch -d architecture
 2. Rebase
-  - відколоти бренч
+  - РІС–РґРєРѕР»РѕС‚Рё Р±СЂРµРЅС‡
    git checkout -b rebase-branch
 
-  - зробити декілька комітів в master
+  - Р·СЂРѕР±РёС‚Рё РґРµРєС–Р»СЊРєР° РєРѕРјС–С‚С–РІ РІ master
    echo "new" > reb1.txt
    git add .
    git commit -m "add reb1 file"
@@ -54,19 +54,19 @@
    git push origin rebase-branch
    git checkout master
    git rebase master
-  -зробити коміти в свою бренчу
+  -Р·СЂРѕР±РёС‚Рё РєРѕРјС–С‚Рё РІ СЃРІРѕСЋ Р±СЂРµРЅС‡Сѓ
    git checkout rebase-branch
    echo "new" > reb3.txt
    git add .
    git commit -m "add reb3 file"
- - зробити merge в master
+ - Р·СЂРѕР±РёС‚Рё merge РІ master
    git checkout master
    git merge rebase-branch
-  - видалити бренч
+  - РІРёРґР°Р»РёС‚Рё Р±СЂРµРЅС‡
    git branch -d rebase-branch
 
 3. Tag
-  - зробити декілька комітів в master
+  - Р·СЂРѕР±РёС‚Рё РґРµРєС–Р»СЊРєР° РєРѕРјС–С‚С–РІ РІ master
    echo "new" > tfile1.txt
    git add .
    git commit -m "add tfile1 file"
@@ -74,35 +74,35 @@
    git add .
    git commit -m "add tfile2 file"
    
-   - створити мітку
+   - СЃС‚РІРѕСЂРёС‚Рё РјС–С‚РєСѓ
    git tag -a v1.1 -m "my first tag"
    git tag
-  -залити мітку в репозиторій
+  -Р·Р°Р»РёС‚Рё РјС–С‚РєСѓ РІ СЂРµРїРѕР·РёС‚РѕСЂС–Р№
    git push origin --tags
 
 4. Submodule (advanced level)
- - додати любий submodule
+ - РґРѕРґР°С‚Рё Р»СЋР±РёР№ submodule
    git submodule add https://github.com/Lina25/testing-the-github-pages.git
-  - злити зміни в master
+  - Р·Р»РёС‚Рё Р·РјС–РЅРё РІ master
    git add .
    git commit -m "add submodule"
    git push origin master
           https://drive.google.com/open?id=0BxxrGq-rJTuiMW9zWWJXWHJrM28
 5. Git Pages (advanced level)
- -  створити бренч "gh-pages", вести роботу в ньому
+ -  СЃС‚РІРѕСЂРёС‚Рё Р±СЂРµРЅС‡ "gh-pages", РІРµСЃС‚Рё СЂРѕР±РѕС‚Сѓ РІ РЅСЊРѕРјСѓ
    git checkout -b gh-pages
- - додати файл index.html з любим контентом (не пустий файл)
+ - РґРѕРґР°С‚Рё С„Р°Р№Р» index.html Р· Р»СЋР±РёРј РєРѕРЅС‚РµРЅС‚РѕРј (РЅРµ РїСѓСЃС‚РёР№ С„Р°Р№Р»)
    echo some text > index.html
- -  коміт & пуш
+ -  РєРѕРјС–С‚ & РїСѓС€
    git add .
    git commit -m "gh-pages index.html"
    git push origin gh-pages
    git checkout master
    git merge gh-pages
    git push origin
- -  перейти по лінку: http://<username>.github.io/<repository-name>   
+ -  РїРµСЂРµР№С‚Рё РїРѕ Р»С–РЅРєСѓ: http://<username>.github.io/<repository-name>   
        https://lina25.github.io/6-vcs-advanced/
--  зробити зміни, commit & push, перевирити чи з'явилися зміни
+-  Р·СЂРѕР±РёС‚Рё Р·РјС–РЅРё, commit & push, РїРµСЂРµРІРёСЂРёС‚Рё С‡Рё Р·'СЏРІРёР»РёСЃСЏ Р·РјС–РЅРё
    manualy changed content of index.html
    git add .
    git commit -m "gh-pages index.html"
@@ -113,22 +113,22 @@
    https://lina25.github.io/6-vcs-advanced/
    changes modified
 6. Conflict (advanced level)
--  в master зробити зміни в file.txt
+-  РІ master Р·СЂРѕР±РёС‚Рё Р·РјС–РЅРё РІ file.txt
    make some changes   
    git add .
    git commit -m "conflict"
- -  в branch зробити зміни в file.txt (несумісні з попередніми - наприклад повна заміна контенту файлу)
+ -  РІ branch Р·СЂРѕР±РёС‚Рё Р·РјС–РЅРё РІ file.txt (РЅРµСЃСѓРјС–СЃРЅС– Р· РїРѕРїРµСЂРµРґРЅС–РјРё - РЅР°РїСЂРёРєР»Р°Рґ РїРѕРІРЅР° Р·Р°РјС–РЅР° РєРѕРЅС‚РµРЅС‚Сѓ С„Р°Р№Р»Сѓ)
    git checkout gh-pages
    make some changes
    git add .
    git commit -m "conflict"
- - змерджити бренч в мастер
+ - Р·РјРµСЂРґР¶РёС‚Рё Р±СЂРµРЅС‡ РІ РјР°СЃС‚РµСЂ
    git checkout master
    git merge gh-pages
    conflict - https://drive.google.com/open?id=0BxxrGq-rJTuiWmhrYUV0b3J2N3M
 
 
-  - спробувати використати git merge --abort
+  - СЃРїСЂРѕР±СѓРІР°С‚Рё РІРёРєРѕСЂРёСЃС‚Р°С‚Рё git merge --abort
    git merge --abort
    git add .
    git commit -m "resolving"
